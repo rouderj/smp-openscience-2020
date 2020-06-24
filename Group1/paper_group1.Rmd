@@ -93,7 +93,9 @@ anova(mod0, mod, refit = FALSE)
 
 ```{r}
 ggplot(data = moddat, mapping = aes(x = condition, y = perf)) +
-  geom_point()
+  geom_point() +
+  geom_smooth(aes(group = pid), method = "lm", se = FALSE, color = "steelblue") +
+  theme_bw()
 
 plot(moddat$condition, moddat$perf, type="n",
      xlab="Congruency", ylab="Performance")

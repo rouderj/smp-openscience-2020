@@ -1,5 +1,5 @@
 ---
-title             : "My Title Goes Here"
+title             : "Individual differences in an inhibition task"
 shorttitle        : "My short title goes here"
 
 author: 
@@ -50,11 +50,7 @@ header-includes:
 output            : papaja::apa6_pdf
 ---
 
-```{r include=FALSE}
-library(lme4)
-library(lmerTest)
-library(tidyverse)
-```
+
 
 You can just start typing your intro. 
 
@@ -71,43 +67,6 @@ dat=read.csv(url('https://raw.githubusercontent.com/PerceptionCognitionLab/data3
 ```{r acc}
 m=tapply(dat$correct,list(dat$targLevel,dat$backLevel),mean)
 ```
-
-```{r wrangling, include=FALSE}
-dat <- dat %>%
-  mutate(condition = targLevel*backLevel)
-
-moddat <- dat %>%
-  group_by(pid, condition) %>%
-  mutate(perf = mean(correct)) %>%
-  distinct(pid, condition, .keep_all = TRUE) %>%
-  arrange(pid, condition)
-moddat$condition <- as.factor(moddat$condition)
-```
-
-
-```{r analysis}
-mod0 <- lmer(correct ~ condition + (1 | pid), data = dat)
-mod <- lmer(correct ~ condition + (1 + condition | pid), data = dat)
-anova(mod0, mod, refit = FALSE)
-```
-
-```{r}
-ggplot(data = moddat, mapping = aes(x = condition, y = perf)) +
-  geom_point() +
-  geom_smooth(aes(group = pid), method = "lm", se = FALSE, color = "steelblue") +
-  theme_bw()
-
-plot(moddat$condition, moddat$perf, type="n",
-     xlab="Congruency", ylab="Performance")
-L2units <- rownames(coef(mod)$pid)
-
-for ( i in 1:length(L2units) ) {
-  curve(coef(mod)$pid[i,1] + coef(mod)$pid[i,2] * x,  
-        lwd=1, col=1, add=TRUE)
-}
-#points(moddat$condition, moddat$perf)
-```
-
 
 ```{r res,fig.cap="My Results"}
 matplot(1:2,m,typ='l',axes=F,xlab="Stimulus",ylab="Accuracy",

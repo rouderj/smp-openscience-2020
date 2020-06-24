@@ -1,23 +1,24 @@
 ---
-title             : "Done't be Fooled: Are there Individual Differences in Inhibiting a Visual Illusion"
-shorttitle        : "Done't be Fooled"
+title             : "Individual Differences in Congruency Effects"
+shorttitle        : "My short title goes here"
 
 author: 
-  - name: Annika Stump
+  - name: Merle-Marie Pittelkow
     affiliation: "1"
     corresponding: yes    # Define only one corresponding author
-    email: annika.stump@psychologie.uni-heidelberg.de
+    email: m.pittelkow@rug.nl
+    address: Department of Psychology, University of Groningen
+  - name: Annika Stump
+    affiliation: "2"
   - name: Jasmine Muradchanian
-    affiliation: "2"
-  - name: Merle-Marie Pittelkow
-    affiliation: "2"
-
+    affiliation: "1"
 
 affiliation       :
   - id: 1
-    institution: Department of Psychology, Universität Heidelberg
+    institution: University of Groningen
   - id: 2
-    institution: Department of Psychology, University of Groningen
+    institution: University of Heidelberg
+
 
 
 author_note       : "This paper was written as part of an open science class"
@@ -27,7 +28,6 @@ abstract          : >
   
 keywords          : "are just words"
 
-bibliography      : ["lab.bib"]
 figsintext        : no
 figurelist        : no
 tablelist         : no
@@ -36,18 +36,19 @@ lineno            : no
 
 
 class             : "man"
-header-includes:
-   - \usepackage{bm}
-   - \usepackage{amsmath}
-   - \usepackage{setspace}
+
 output            : papaja::apa6_pdf
 ---
 
 
+# Background
 
+Visual illusions are quite fun for humans. Be it to fool other or to scratch one's head. 
+As part of the Transparent Open Science IOPS workshop by Jeff Rouder.
 
 
 # Method
+The nine participants completed an online visual task. Two dots were presented each at one side on the screen.
 
 
 # Results

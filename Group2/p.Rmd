@@ -1,0 +1,74 @@
+---
+title             : "Done't be Fooled: Are there Individual Differences in Inhibiting a Visual Illusion"
+shorttitle        : "Done't be Fooled"
+
+author: 
+  - name: Annika Stump
+    affiliation: "1"
+    corresponding: yes    # Define only one corresponding author
+    email: annika.stump@psychologie.uni-heidelberg.de
+  - name: Jasmine Muradchanian
+    affiliation: "2"
+  - name: Merle-Marie Pittelkow
+    affiliation: "2"
+
+
+affiliation       :
+  - id: 1
+    institution: Department of Psychology, Universität Heidelberg
+  - id: 2
+    institution: Department of Psychology, University of Groningen
+
+
+author_note       : "This paper was written as part of an open science class"
+
+abstract          : >
+  "Here"
+  
+keywords          : "are just words"
+
+bibliography      : ["lab.bib"]
+figsintext        : no
+figurelist        : no
+tablelist         : no
+footnotelist      : no
+lineno            : no
+
+
+class             : "man"
+header-includes:
+   - \usepackage{bm}
+   - \usepackage{amsmath}
+   - \usepackage{setspace}
+output            : papaja::apa6_pdf
+---
+
+
+
+
+
+# Method
+
+
+# Results
+
+```{r}
+dat=read.csv(url('https://raw.githubusercontent.com/PerceptionCognitionLab/data3/master/brightCompare1/data'),header=TRUE)
+```
+
+
+```{r acc}
+m=tapply(dat$correct,list(dat$targLevel,dat$backLevel),mean)
+```
+
+```{r res,fig.cap="My Results"}
+matplot(1:2,m,typ='l',axes=F,xlab="Stimulus",ylab="Accuracy",
+        lty=1,ylim=c(0,1),lwd=2)
+axis(1,at=1:2,lab=c("Darker Left","Darker Right"))
+axis(2)
+```
+
+The overall accuracy was `r round(mean(m),2)`.  Figure \ref{fig:res} blah blah.
+
+# Discussion
+

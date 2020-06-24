@@ -1,0 +1,81 @@
+---
+title             : "My Title Goes Here"
+shorttitle        : "My short title goes here"
+
+author: 
+  - name: Jeffrey N. Rouder
+    affiliation: "1"
+    corresponding: yes    # Define only one corresponding author
+    email: jrouder@uci.edu
+    address: Department of Cognitive Science, University of California, Irvine, CA, 92697
+  - name: Martin Schnuerch
+    affiliation: "2"
+  - name: Julia M. Haaf
+    affiliation: "3"
+  - name: Richard D. Morey 
+    affiliation: "4"
+
+
+affiliation       :
+  - id: 1
+    institution: University of California, Irvine
+  - id: 2
+    institution: University of Mannheim
+  - id: 3
+    institution: University of Amsterdam
+  - id: 4
+    institution: University of Cardiff
+
+
+author_note       : "This paper was written as part of an open science class"
+
+abstract          : >
+  "Here"
+  
+keywords          : "are just words"
+
+bibliography      : ["lab.bib"]
+figsintext        : no
+figurelist        : no
+tablelist         : no
+footnotelist      : no
+lineno            : no
+
+
+class             : "man"
+header-includes:
+   - \usepackage{bm}
+   - \usepackage{amsmath}
+   - \usepackage{setspace}
+output            : papaja::apa6_pdf
+---
+
+
+
+You can just start typing your intro. 
+
+# Method
+
+blah blah
+
+# Results
+
+```{r loadData}
+dat=read.csv(url('https://raw.githubusercontent.com/PerceptionCognitionLab/data3/master/brightCompare1/data'),header=TRUE)
+```
+
+```{r acc}
+m=tapply(dat$correct,list(dat$targLevel,dat$backLevel),mean)
+```
+
+```{r res,fig.cap="My Results"}
+matplot(1:2,m,typ='l',axes=F,xlab="Stimulus",ylab="Accuracy",
+        lty=1,ylim=c(0,1),lwd=2)
+axis(1,at=1:2,lab=c("Darker Left","Darker Right"))
+axis(2)
+```
+
+The overall accuracy was `r round(mean(m),2)`.  Figure \ref{fig:res} blah blah.
+
+# Discussion
+

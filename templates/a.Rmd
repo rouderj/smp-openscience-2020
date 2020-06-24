@@ -1,0 +1,6 @@
+```{r}
+dat=read.csv(url('https://raw.githubusercontent.com/PerceptionCognitionLab/data3/master/brightCompare1/data'),header=TRUE)
+```
+
+
+

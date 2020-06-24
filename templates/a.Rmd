@@ -4,3 +4,20 @@ dat=read.csv(url('https://raw.githubusercontent.com/PerceptionCognitionLab/data3
 
 
 
+```{r}
+m=tapply(dat$correct,list(dat$backLevel,dat$targLevel),mean)
+
+inhFun=function(m)
+  ((m[1,1]-m[5,1])+(m[5,2]-m[1,2]))/2
+
+mS=tapply(dat$correct,list(dat$backLevel,dat$targLevel,dat$pid),mean)
+inh=apply(mS,3,inhFun)
+```
+
+```{r}
+matplot(-2:2,m,ylab="Accuracy",xlab="Background",typ='b',
+        lty=1,lwd=2)
+```
+```{r}
+plot(sort(inh))
+```
